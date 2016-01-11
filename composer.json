@@ -1,0 +1,22 @@
+{
+  "name": "Westwing-Home-and-Living/flysystem-factory",
+  "description": "Simple Factory for the League\\Flysystem filesystem abstraction library",
+  "license": "MIT",
+  "keywords": [ "flysystem", "filesystem", "filesystems", "abstraction", "factory" ],
+  "authors": [
+    {
+      "name": "Josemi Liébana",
+      "email": "josemi.liebana@westwing.de"
+    }
+  ],
+  "require": {
+    "symfony/yaml": "2.6.*",
+    "symfony/config": "2.6.*",
+    "league/flysystem": "0.4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Westwing\\Filesystem\\": "src/"
+    }
+  }
+}
