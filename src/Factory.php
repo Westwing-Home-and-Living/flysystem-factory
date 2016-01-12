@@ -3,8 +3,8 @@
 namespace Westwing\Filesystem;
 
 use Westwing\Filesystem\Adapter\AdapterInterface;
+use Westwing\Filesystem\Config\Adapter\AdapterInterface as Config;
 use Westwing\Filesystem\Config\Loader;
-use Westwing\Filesystem\Config\Adapter\AbstractConfig as Config;
 use League\Flysystem\Exception;
 use League\Flysystem\Filesystem;
 

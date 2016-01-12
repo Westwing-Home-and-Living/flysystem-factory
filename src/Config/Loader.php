@@ -3,7 +3,6 @@
 namespace Westwing\Filesystem\Config;
 
 use Westwing\Filesystem\Config\Adapter\AdapterInterface;
-use Westwing\Filesystem\Config\Adapter\AbstractConfig as Config;
 use Westwing\Filesystem\Config\Loader\Yaml;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Loader\LoaderResolver;
@@ -101,9 +100,9 @@ class Loader
         $configurationClass->setAdapterName($adapterName);
 
         $configToValidate = array(
-            Config::INDEX_FILESYSTEM => array(
-                Config::INDEX_ADAPTER => array(
-                    $adapterName => $config[Config::INDEX_FILESYSTEM][Config::INDEX_ADAPTER][$adapterName]
+            AdapterInterface::INDEX_FILESYSTEM => array(
+                AdapterInterface::INDEX_ADAPTER => array(
+                    $adapterName => $config[AdapterInterface::INDEX_FILESYSTEM][AdapterInterface::INDEX_ADAPTER][$adapterName]
                 )
             )
         );

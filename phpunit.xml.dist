@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit backupGlobals="false" preserveGlobalState="false"
+         backupStaticAttributes="false"
+         bootstrap="./tests/bootstrap.php"
+         colors="true"
+         processIsolation="false"
+         syntaxCheck="false">
+    <testsuites>
+        <testsuite name="config">
+            <directory suffix=".php">./tests/Config/</directory>
+        </testsuite>
+        <testsuite name="factory">
+            <file>./tests/FactoryTests.php</file>
+        </testsuite>
+        <testsuite name="filesystem">
+            <directory suffix=".php">./tests/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./src/</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="true" />
+        <log type="coverage-text" target="./build/coverage/text.txt" showUncoveredFiles="true" />
+        <log type="coverage-html" target="./build/coverage/html/" lowUpperBound="35" highLowerBound="70" />
+        <log type="coverage-clover" target="./build/coverage/clover.xml" />
+    </logging>
+</phpunit>

@@ -8,10 +8,6 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 abstract class AbstractConfig implements AdapterInterface, ConfigurationInterface
 {
-    const INDEX_FILESYSTEM = 'Filesystem';
-    const INDEX_TYPE       = 'type';
-    const INDEX_ADAPTER    = 'adapter';
-
     /**
      * @var string
      */
@@ -39,7 +35,7 @@ abstract class AbstractConfig implements AdapterInterface, ConfigurationInterfac
     }
 
     /**
-     * Puts together the tree node definition
+     * Merge together the tree node definition with the Adapter node definition
      *
      * @author Josemi Liébana <josemi.liebana@westwing.de>
      *
