@@ -8,21 +8,23 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 class AwsS3 extends AbstractConfig
 {
-    const INDEX_USERNAME  = 'username';
+    const INDEX_CREDENTIALS = 'credentials';
 
-    const INDEX_PASSWORD  = 'password';
+    const INDEX_KEY         = 'key';
 
-    const INDEX_REGION    = 'region';
+    const INDEX_SECRET      = 'secret';
 
-    const INDEX_BUCKET    = 'bucket';
+    const INDEX_REGION      = 'region';
 
-    const INDEX_VERSION   = 'version';
+    const INDEX_BUCKET      = 'bucket';
 
-    const INDEX_PREFIX    = 'prefix';
+    const INDEX_VERSION     = 'version';
 
-    const INDEX_OPTIONS   = 'options';
+    const INDEX_PREFIX      = 'prefix';
 
-    const DEFAULT_VERSION = 'latest';
+    const INDEX_OPTIONS     = 'options';
+
+    const DEFAULT_VERSION   = 'latest';
 
     /**
      * Gets the adapter specific config builder
@@ -38,11 +40,11 @@ class AwsS3 extends AbstractConfig
 
         $node
             ->children()
-                ->scalarNode(self::INDEX_USERNAME)
+                ->scalarNode(self::INDEX_KEY)
                     ->isRequired()
                     ->cannotBeEmpty()
                 ->end()
-                ->scalarNode(self::INDEX_PASSWORD)
+                ->scalarNode(self::INDEX_SECRET)
                     ->isRequired()
                     ->cannotBeEmpty()
                 ->end()

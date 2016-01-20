@@ -8,16 +8,6 @@ use Westwing\Filesystem\Config\Adapter\AwsS3 as Config;
 
 class AwsS3 extends AbstractAdapter
 {
-    const INDEX_CREDENTIALS = 'credentials';
-
-    const INDEX_KEY         = 'key';
-
-    const INDEX_SECRET      = 'secret';
-
-    const INDEX_REGION      = 'region';
-
-    const INDEX_VERSION     = 'version';
-
     /**
      * Creates and return a new instance of the adapter.
      *
@@ -33,12 +23,12 @@ class AwsS3 extends AbstractAdapter
         $options = (!empty($config[Config::INDEX_OPTIONS]) ? $config[Config::INDEX_OPTIONS] : array());
 
         $client = new S3Client(array(
-            self::INDEX_CREDENTIALS => array(
-                self::INDEX_KEY    => $config[Config::INDEX_USERNAME],
-                self::INDEX_SECRET => $config[Config::INDEX_PASSWORD],
+            Config::INDEX_CREDENTIALS => array(
+                Config::INDEX_KEY    => $config[Config::INDEX_KEY],
+                Config::INDEX_SECRET => $config[Config::INDEX_SECRET],
             ),
-            self::INDEX_REGION      => $config[Config::INDEX_REGION],
-            self::INDEX_VERSION     => $config[Config::INDEX_VERSION],
+            Config::INDEX_REGION      => $config[Config::INDEX_REGION],
+            Config::INDEX_VERSION     => $config[Config::INDEX_VERSION],
         ));
 
         $adapter = new AwsS3Adapter($client, $config[Config::INDEX_BUCKET], $prefix, $options);

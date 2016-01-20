@@ -4,13 +4,10 @@ Filesystem:
       type: "Local"
       root: "."
     sharedFS:
-      type: "AwsS3"
-      username:
-      password:
+      type:
+      key:
+      secret:
       region:
       bucket:
       prefix:
       options:
-        Body:
-        ContentType:
-        ContentLength:
