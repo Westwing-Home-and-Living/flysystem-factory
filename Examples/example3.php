@@ -9,6 +9,6 @@ use Westwing\Filesystem\Factory;
 $fileSystemFactory = new Factory();
 $fileSystemFactory->setConfigFile(__DIR__ . '/filesystem.yml');
 
-$fileSystem = $fileSystemFactory->get('localFS');
+$fileSystem = $fileSystemFactory->get('sharedFS');
 
 print_r($fileSystem->listContents());
