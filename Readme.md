@@ -20,7 +20,7 @@ Add the following lines to your composer.json:
 ```json
 {
     "require": {
-        "Westwing-Home-and-Living/flysystem-factory": "v0.1"
+        "Westwing-Home-and-Living/flysystem-factory": "v0.2"
     },
     "repositories": [
         {
@@ -44,6 +44,7 @@ Want to get started quickly? Check out the **Recipes** folder!
 Adapters currently implemented:
 
 * Local
+* AwsS3
 
 # Examples
 
@@ -91,8 +92,8 @@ Filesystem:
       root: "."
     sharedFS:
       type: "AwsS3"
-      username:
-      password:
+      key:
+      secret:
       region:
       bucket:
       prefix:
