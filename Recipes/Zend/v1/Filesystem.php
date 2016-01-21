@@ -23,10 +23,11 @@ class Filesystem extends Zend_Application_Resource_ResourceAbstract
         $config = $config->toArray();
 
         if (empty($config[Config::INDEX_ADAPTER]) || !is_array($config[Config::INDEX_ADAPTER])) {
-            throw new Exception(Filesystem\Factory::ERROR_BAD_CONFIG);
+            throw new Exception(Factory::ERROR_BAD_CONFIG);
         }
 
         $fileSystemFactory = new Factory();
+        $defaultAdapter    = $config[Config::INDEX_DEFAULT_ADAPTER];
         $adaptersConfig    = $config[Config::INDEX_ADAPTER];
 
         foreach ($adaptersConfig as $adapterName => $config) {
@@ -43,6 +44,10 @@ class Filesystem extends Zend_Application_Resource_ResourceAbstract
             $filesystem = $fileSystemFactory->get($adapterName);
 
             Zend_Registry::set($adapterName, $filesystem);
+
+            if ($adapterName == $defaultAdapter) {
+                Zend_Registry::set(Config::INDEX_DEFAULT_ADAPTER, $filesystem);
+            }
         }
     }
 }
