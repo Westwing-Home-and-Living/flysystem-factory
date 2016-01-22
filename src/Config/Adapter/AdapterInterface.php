@@ -5,12 +5,9 @@ namespace Westwing\Filesystem\Config\Adapter;
 interface AdapterInterface
 {
     const INDEX_FILESYSTEM      = 'Filesystem';
-
     const INDEX_ADAPTER         = 'adapter';
-
     const INDEX_TYPE            = 'type';
-
-    const INDEX_DEFAULT_ADAPTER = 'defaultFsAdapter';
+    const INDEX_DEFAULT_ADAPTER = 'defaultFs';
 
     /**
      * Gets the adapter specific config builder
