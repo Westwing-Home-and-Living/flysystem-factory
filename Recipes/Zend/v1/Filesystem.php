@@ -1,7 +1,7 @@
 <?php
 
-use Westwing\Filesystem\Config\Adapter\AbstractConfig as Config;
 use Westwing\Filesystem\Factory;
+use Westwing\Filesystem\Config\Adapter\AbstractConfig as Config;
 
 class Filesystem extends Zend_Application_Resource_ResourceAbstract
 {
