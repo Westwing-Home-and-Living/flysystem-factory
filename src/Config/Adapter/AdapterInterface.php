@@ -7,7 +7,7 @@ interface AdapterInterface
     const INDEX_FILESYSTEM      = 'Filesystem';
     const INDEX_ADAPTER         = 'adapter';
     const INDEX_TYPE            = 'type';
-    const INDEX_DEFAULT_ADAPTER = 'defaultFs';
+    const INDEX_DEFAULT_ADAPTER = 'default';
 
     /**
      * Gets the adapter specific config builder
