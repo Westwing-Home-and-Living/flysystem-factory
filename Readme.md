@@ -2,6 +2,7 @@
 
 [![Author](http://img.shields.io/badge/author-@titosemi-blue.svg?style=flat-square)](https://twitter.com/titosemi)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Build Status](https://travis-ci.org/Westwing-Home-and-Living/flysystem-factory.svg?branch=master)](https://travis-ci.org/Westwing-Home-and-Living/flysystem-factory)
 
 # Description
 
