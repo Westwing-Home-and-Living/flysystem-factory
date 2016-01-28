@@ -8,5 +8,5 @@ php:
 install:
    - composer install
 
-phpunit
+script: ./bin/phpunit
 
