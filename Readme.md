@@ -100,9 +100,6 @@ Filesystem:
       bucket:
       prefix:
       options:
-        Body:
-        ContentType:
-        ContentLength:
     ftp:
       type: "Ftp"
       host:
