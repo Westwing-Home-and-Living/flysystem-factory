@@ -86,14 +86,14 @@ class Loader
     {
         $className = $this->getAdapterConfigNamespace();
         if (!class_exists($className)) {
-            throw new \Exception(sprintf(self::ERROR_TEMPLATE_CLASS_DONT_EXISTS, $this->getAdapterName()));
+            throw new \Exception(sprintf(self::ERROR_TEMPLATE_CLASS_DOESNT_EXISTS, $this->getAdapterName()));
         }
 
         /** @var Config $configurationClass */
         $configurationClass = new $className();
         if (!$configurationClass instanceof AdapterInterface) {
             throw new \Exception(
-                sprintf(self::ERROR_TEMPLATE_CLASS_MUST_EXTENDS, $this->getAdapterName(), 'AdapterInterface')
+                sprintf(self::ERROR_TEMPLATE_CLASS_MUST_IMPLEMENT, $this->getAdapterName(), 'AdapterInterface')
             );
         }
 

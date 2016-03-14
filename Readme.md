@@ -21,7 +21,7 @@ Add the following lines to your composer.json:
 ```json
 {
     "require": {
-        "Westwing-Home-and-Living/flysystem-factory": "v0.2"
+        "Westwing-Home-and-Living/flysystem-factory": "v0.2.2"
     },
     "repositories": [
         {
@@ -46,6 +46,7 @@ Adapters currently implemented:
 
 * Local
 * AwsS3
+* FTP
 
 # Examples
 
@@ -99,7 +100,18 @@ Filesystem:
       bucket:
       prefix:
       options:
-        Body:
-        ContentType:
-        ContentLength:
+    ftp:
+      type: "Ftp"
+      host:
+      #port:
+      username:
+      password:
+      #ssl:
+      #timeout:
+      #root:
+      #permPrivate:
+      #permPublic:
+      #passive:
+      #transferMode:
+      #ignorePassiveAddress:
 ```
