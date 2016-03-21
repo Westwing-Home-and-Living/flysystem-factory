@@ -45,6 +45,7 @@ Want to get started quickly? Check out the **Recipes** folder!
 Adapters currently implemented:
 
 * Local
+* Ftp
 * AwsS3
 
 # Examples

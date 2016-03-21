@@ -11,3 +11,18 @@ Filesystem:
       bucket:
       prefix:
       options:
+    ftpFS:
+      type: "Ftp"
+      host:
+      username:
+      password:
+      port:
+      root:
+      ssl:
+      timeout:
+      permPrivate:
+      permPublic:
+      passive:
+      transferMode:
+      systemType:
+      ignorePassiveAddress:

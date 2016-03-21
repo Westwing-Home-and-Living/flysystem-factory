@@ -12,7 +12,7 @@ use Symfony\Component\Config\Exception\FileLoaderLoadException;
 
 class Loader
 {
-    const ERROR_TEMPLATE_CLASS_DOESNT_EXISTS  = 'Config class for the adapter %s doesn\'t exist.';
+    const ERROR_TEMPLATE_CLASS_DOES_NOT_EXIST = 'Config class for the adapter %s doesn\'t exist.';
     const ERROR_TEMPLATE_CLASS_MUST_IMPLEMENT = 'Config class for the adapter %s must implement %s';
 
     /**
@@ -86,14 +86,14 @@ class Loader
     {
         $className = $this->getAdapterConfigNamespace();
         if (!class_exists($className)) {
-            throw new \Exception(sprintf(self::ERROR_TEMPLATE_CLASS_DONT_EXISTS, $this->getAdapterName()));
+            throw new \Exception(sprintf(self::ERROR_TEMPLATE_CLASS_DOES_NOT_EXIST, $this->getAdapterName()));
         }
 
         /** @var Config $configurationClass */
         $configurationClass = new $className();
         if (!$configurationClass instanceof AdapterInterface) {
             throw new \Exception(
-                sprintf(self::ERROR_TEMPLATE_CLASS_MUST_EXTENDS, $this->getAdapterName(), 'AdapterInterface')
+                sprintf(self::ERROR_TEMPLATE_CLASS_MUST_IMPLEMENT, $this->getAdapterName(), 'AdapterInterface')
             );
         }
 
