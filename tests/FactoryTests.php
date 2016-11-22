@@ -143,4 +143,28 @@ class FactoryTests extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('League\\Flysystem\\AdapterInterface', $filesystem->getAdapter());
         $this->assertInstanceOf('League\\Flysystem\\Filesystem', $filesystem);
     }
+
+    public function testFactoryGit()
+    {
+        $filesystemFactory = new Filesystem\Factory();
+
+        $config = array(
+          'Filesystem' => array(
+            'adapter' => array(
+              'gitTest' => array(
+                'type' => 'Git',
+                'endpoint'  => 'http://localhost:8081',
+                'remote' => 'https://github.com/shadiakiki1986/git-data-repo-testDataRepo'
+              )
+            )
+          )
+        );
+
+        $filesystemFactory->setConfig($config);
+        $filesystem = $filesystemFactory->get('gitTest');
+
+        $this->assertInstanceOf('League\\Flysystem\\AdapterInterface', $filesystem->getAdapter());
+        $this->assertInstanceOf('League\\Flysystem\\Filesystem', $filesystem);
+    }
+
 }
