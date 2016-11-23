@@ -8,6 +8,20 @@ use Westwing\Filesystem\Config\Adapter\Git as Config;
 
 class Git extends AbstractAdapter
 {
+    private function getEndpoint($config) {
+        if(!empty($config[Config::INDEX_ENDPOINT])) {
+          return $config[Config::INDEX_ENDPOINT];
+        }
+
+        $endpoint = getenv('GITRESTAPI_ENDPOINT');
+        if(!!$endpoint) {
+          return $endpoint;
+        }
+
+        throw new \Exception('git-rest-api endpoint not defined in config.yml and not in env var GITRESTAPI_ENDPOINT. Aborting');
+    }
+
+
     /**
      * Creates and return a new instance of the adapter.
      *
@@ -19,7 +33,9 @@ class Git extends AbstractAdapter
      */
     public function make($config)
     {
-        $client = new GitClient($config[Config::INDEX_ENDPOINT]);
+        $endpoint = $this->getEndpoint($config);
+
+        $client = new GitClient($endpoint);
         $repo = $client->cloneRemote($config[Config::INDEX_REMOTE],1);
 
         if(!empty($config[Config::INDEX_USERNAME])) {

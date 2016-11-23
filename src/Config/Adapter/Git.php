@@ -35,8 +35,6 @@ class Git extends AbstractConfig
         $node
             ->children()
                 ->scalarNode(self::INDEX_ENDPOINT)
-                    ->isRequired()
-                    ->cannotBeEmpty()
                 ->end()
                 ->scalarNode(self::INDEX_REMOTE)
                     ->isRequired()
