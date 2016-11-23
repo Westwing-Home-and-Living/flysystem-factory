@@ -30,8 +30,8 @@ class Git extends AbstractAdapter
         }
 
         // initialize filesystem for further usage
-        $push = !empty($config[Config::INDEX_PUSH])?strtolower($config[Config::INDEX_PUSH])=='true':false;
-        $pull = !empty($config[Config::INDEX_PULL])?strtolower($config[Config::INDEX_PULL])=='true':false;
+        $push = !empty($config[Config::INDEX_PUSH])?$config[Config::INDEX_PUSH]:false;
+        $pull = !empty($config[Config::INDEX_PULL])?$config[Config::INDEX_PULL]:false;
 
         $adapter = new GitAdapter($repo,$push,$pull);
 
