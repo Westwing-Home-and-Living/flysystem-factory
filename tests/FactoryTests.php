@@ -143,4 +143,44 @@ class FactoryTests extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('League\\Flysystem\\AdapterInterface', $filesystem->getAdapter());
         $this->assertInstanceOf('League\\Flysystem\\Filesystem', $filesystem);
     }
+
+    /**
+     * @dataProvider testFactoryGitProvider
+     */
+    public function testFactoryGit($config)
+    {
+        if(!array_key_exists('endpoint',$config['Filesystem']['adapter']['gitTest'])) {
+          if(!getenv('GITRESTAPI_ENDPOINT')) {
+            $this->markTestSkipped('Need to define env var GITRESTAPI_ENDPOINT for this test');
+          }
+        }
+
+        $filesystemFactory = new Filesystem\Factory();
+
+        $filesystemFactory->setConfig($config);
+        $filesystem = $filesystemFactory->get('gitTest');
+
+        $this->assertInstanceOf('League\\Flysystem\\AdapterInterface', $filesystem->getAdapter());
+        $this->assertInstanceOf('League\\Flysystem\\Filesystem', $filesystem);
+    }
+
+    public function testFactoryGitProvider()
+    {
+        $config = array(
+          'Filesystem' => array(
+            'adapter' => array(
+              'gitTest' => array(
+                'type' => 'Git',
+                'remote' => 'https://github.com/shadiakiki1986/git-data-repo-testDataRepo'
+              )
+            )
+          )
+        );
+
+        $c2 = $config;
+        $c2['Filesystem']['adapter']['gitTest']['endpoint'] = 'http://localhost:8081';
+
+        return [ [$config], [$c2] ];
+    }
+
 }
