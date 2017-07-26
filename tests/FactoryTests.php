@@ -118,7 +118,7 @@ class FactoryTests extends PHPUnit_Framework_TestCase
     {
         $config = $this->getValidSingleAdapterConfig();
 
-        $config[Config::INDEX_FILESYSTEM][Config::INDEX_ADAPTER][$this->adapterName][Config::INDEX_TYPE] = 'local';
+        unset($config[Config::INDEX_FILESYSTEM][Config::INDEX_ADAPTER]);
 
         $filesystemFactory = new Filesystem\Factory();
         $filesystemFactory->setConfig($config);
