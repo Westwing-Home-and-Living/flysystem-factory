@@ -10,9 +10,9 @@
     }
   ],
   "require": {
-    "symfony/yaml": "2.6.*",
-    "symfony/config": "2.6.*",
-    "league/flysystem": "1.0.*",
+    "symfony/yaml": "v3.2.6",
+    "symfony/config": "^3.3",
+    "league/flysystem": "^1.0",
     "league/flysystem-aws-s3-v3": "^1.0"
   },
   "require-dev": {
