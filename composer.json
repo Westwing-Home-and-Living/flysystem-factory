@@ -1,5 +1,5 @@
 {
-  "name": "westwing-home-and-living/flysystem-factory",
+  "name": "Westwing-Home-and-Living/flysystem-factory",
   "description": "Simple Factory for the League\\Flysystem filesystem abstraction library",
   "license": "MIT",
   "keywords": [ "flysystem", "filesystem", "filesystems", "abstraction", "factory" ],
