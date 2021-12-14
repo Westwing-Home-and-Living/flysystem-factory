@@ -103,4 +103,13 @@ Filesystem:
         Body:
         ContentType:
         ContentLength:
+    sharedFSWRole:
+      type: "AwsS3Role"
+      region:
+      bucket:
+      prefix:
+      options:
+        Body:
+        ContentType:
+        ContentLength:
 ```

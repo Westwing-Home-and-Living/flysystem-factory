@@ -11,6 +11,12 @@ Filesystem:
       bucket:
       prefix:
       options:
+    sharedFSRole:
+      type: "AwsS3Role"
+      region:
+      bucket:
+      prefix:
+      options:
     ftpFS:
       type: "Ftp"
       host:
