@@ -22,14 +22,19 @@ class AwsS3 extends AbstractAdapter
         $prefix  = (!empty($config[Config::INDEX_PREFIX]) ? $config[Config::INDEX_PREFIX] : null);
         $options = (!empty($config[Config::INDEX_OPTIONS]) ? $config[Config::INDEX_OPTIONS] : array());
 
-        $client = new S3Client(array(
-            Config::INDEX_CREDENTIALS => array(
+        $s3ClientConnection = array(
+            Config::INDEX_REGION  => $config[Config::INDEX_REGION],
+            Config::INDEX_VERSION => $config[Config::INDEX_VERSION],
+        );
+
+        if (!empty($config[Config::INDEX_KEY]) && !empty($config[Config::INDEX_SECRET])) {
+            $s3ClientConnection[Config::INDEX_CREDENTIALS] = [
                 Config::INDEX_KEY    => $config[Config::INDEX_KEY],
                 Config::INDEX_SECRET => $config[Config::INDEX_SECRET],
-            ),
-            Config::INDEX_REGION      => $config[Config::INDEX_REGION],
-            Config::INDEX_VERSION     => $config[Config::INDEX_VERSION],
-        ));
+            ];
+        }
+
+        $client = new S3Client($s3ClientConnection);
 
         $adapter = new AwsS3Adapter($client, $config[Config::INDEX_BUCKET], $prefix, $options);
 
