@@ -22,10 +22,10 @@ class AwsS3 extends AbstractAdapter
         $prefix  = (!empty($config[Config::INDEX_PREFIX]) ? $config[Config::INDEX_PREFIX] : null);
         $options = (!empty($config[Config::INDEX_OPTIONS]) ? $config[Config::INDEX_OPTIONS] : array());
 
-        $s3ClientConnection = array(
+        $s3ClientConnection = [
             Config::INDEX_REGION  => $config[Config::INDEX_REGION],
             Config::INDEX_VERSION => $config[Config::INDEX_VERSION],
-        );
+        ];
 
         if (!empty($config[Config::INDEX_KEY]) && !empty($config[Config::INDEX_SECRET])) {
             $s3ClientConnection[Config::INDEX_CREDENTIALS] = [
