@@ -41,10 +41,10 @@ class AwsS3 extends AbstractConfig
         $node
             ->children()
                 ->scalarNode(self::INDEX_KEY)
-                    ->defaultNull()
+                    ->cannotBeEmpty()
                 ->end()
                 ->scalarNode(self::INDEX_SECRET)
-                    ->defaultNull()
+                    ->cannotBeEmpty()
                 ->end()
                 ->scalarNode(self::INDEX_REGION)
                     ->isRequired()
